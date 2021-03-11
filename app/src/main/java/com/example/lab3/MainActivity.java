@@ -23,20 +23,24 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, classes);
 
-        listView = findViewById(R.id.list_view);
+        listView = findViewById(R.id.class_schedule);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "This is the Item Click", Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String s = (String) adapterView.getItemAtPosition(position);
+
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
             }
         });
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "This is the Long Item Click", Toast.LENGTH_SHORT).show();
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String s = (String) adapterView.getItemAtPosition(position);
+
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
